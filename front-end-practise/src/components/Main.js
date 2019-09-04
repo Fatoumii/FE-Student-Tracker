@@ -8,7 +8,7 @@ class Main extends React.Component {
   };
   render() {
     const { students, loading } = this.state;
-
+    console.log(students);
     return (
       <div className="content">
         {loading === true ? (
@@ -20,12 +20,8 @@ class Main extends React.Component {
               {students.map(student => {
                 return (
                   <ul className="studentList" key={student.id}>
-                    <li>
-                      {student.name.includes(" ")
-                        ? student.name.toUpperCase()
-                        : "N/A"}
-                    </li>
-                  </ul> //can't be null, change it so it's removed
+                    <li>{student.name}</li>
+                  </ul>
                 );
               })}
             </div>
