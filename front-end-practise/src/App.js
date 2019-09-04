@@ -14,10 +14,11 @@ function App() {
       <Router className="router">
         <Home path="/" />
         <Main path="/main" />
-        <ID path="/main/:id" />
+        <Main path="/main/:id" />
       </Router>
       <Footer />
     </div>
+    //ID INSTEAD OF MAIN?
   );
 }
 

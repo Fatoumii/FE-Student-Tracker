@@ -10,23 +10,25 @@ class Main extends React.Component {
     const { students, loading } = this.state;
 
     return (
-      <div>
+      <div className="content">
         {loading === true ? (
           "Loading..."
         ) : (
           <div>
             <h2>Students</h2>
-            {students.map(student => {
-              return (
-                <ul className="studentList" key={student.id}>
-                  <li>
-                    {student.name.includes(" ")
-                      ? student.name.toUpperCase()
-                      : null}
-                  </li>
-                </ul>
-              );
-            })}
+            <div className="students">
+              {students.map(student => {
+                return (
+                  <ul className="studentList" key={student.id}>
+                    <li>
+                      {student.name.includes(" ")
+                        ? student.name.toUpperCase()
+                        : "N/A"}
+                    </li>
+                  </ul> //can't be null, change it so it's removed
+                );
+              })}
+            </div>
           </div>
         )}
       </div>
