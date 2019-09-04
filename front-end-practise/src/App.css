@@ -9,6 +9,9 @@ body {
   background-color: rgb(48, 47, 47);
   height: 15vh;
 }
+.studentList {
+  list-style: none;
+}
 
 .footer {
   background-color: rgb(48, 47, 47);
@@ -18,4 +21,5 @@ body {
 .router {
   background-color: whitesmoke;
   height: 80vh;
+  overflow: scroll;
 }

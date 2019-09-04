@@ -3,14 +3,22 @@ import * as api from "../utils";
 
 class Main extends React.Component {
   state = {
-    students: {}
+    students: []
   };
   render() {
     const { students } = this.state;
-    console.log(students);
+
     return (
       <div>
-        <p>Main</p>
+        {students.map(student => {
+          return (
+            <ul className="studentList" key={student.id}>
+              <li>
+                {student.name.includes(" ") ? student.name.toUpperCase() : null}
+              </li>
+            </ul>
+          );
+        })}
       </div>
     );
   }
