@@ -11,6 +11,7 @@ body {
 }
 .studentList {
   list-style: none;
+  border: 1px solid grey;
 }
 
 .footer {
