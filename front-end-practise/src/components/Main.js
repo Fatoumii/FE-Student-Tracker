@@ -2,7 +2,7 @@ import React from "react";
 import Students from "./Students";
 import * as api from "../utils";
 import Nav from "./Nav";
-// import { Router } from "@reach/router";
+import { Router } from "@reach/router";
 
 class Main extends React.Component {
   state = {
@@ -15,9 +15,10 @@ class Main extends React.Component {
     return (
       <div>
         <Nav blocks={blocks} />
-        {/* <Router> */}
-        <Students path="/" blocks={blocks} block={block} />
-        {/* </Router> */}
+        <Router>
+          <Students path="/" blocks={blocks} block={block} />
+          {/* <SingleStudent path="/students/:student_id" /> */}
+        </Router>
       </div>
     );
   }

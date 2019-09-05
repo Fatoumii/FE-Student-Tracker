@@ -1,5 +1,6 @@
 import React from "react";
 import * as api from "../utils";
+import { Link } from "@reach/router";
 
 class Main extends React.Component {
   state = {
@@ -8,7 +9,8 @@ class Main extends React.Component {
   };
   render() {
     const { students, loading } = this.state;
-
+    // const { blocks } = this.props;
+    // console.log(blocks); need this to be the slug so can use this name to change the students
     return (
       <div>
         {loading === true ? (
@@ -19,9 +21,13 @@ class Main extends React.Component {
             <div className="students">
               {students.map(student => {
                 return (
-                  <ul className="studentList" key={student.id}>
-                    <li>{student.name}</li>
-                  </ul>
+                  <Link
+                    to={`/students/${student._id}`}
+                    className="studentList"
+                    key={student.id}
+                  >
+                    {student.name}
+                  </Link>
                 );
               })}
             </div>
@@ -32,8 +38,6 @@ class Main extends React.Component {
   }
   componentDidUpdate = (prevProps, prevState) => {
     const { block } = this.props;
-    console.log(block);
-    console.log("update");
     if (block !== prevProps.block) {
       this.fetchStudents(block);
     }

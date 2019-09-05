@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const getStudent = async block => {
+export const getStudent = async blocks => {
   const student = await axios.get(
     "https://nc-student-tracker.herokuapp.com/api/students",
-    { params: block }
+    { params: { blocks } }
   );
   return student.data.students;
 };
