@@ -1,39 +1,26 @@
 import React from "react";
+import Students from "./Students";
 import * as api from "../utils";
+import Nav from "./Nav";
+import { Router } from "@reach/router";
 
 class Main extends React.Component {
   state = {
-    students: [],
-    loading: true
+    blocks: []
   };
   render() {
-    const { students, loading } = this.state;
-    console.log(students);
+    const { blocks } = this.state;
     return (
-      <div className="content">
-        {loading === true ? (
-          "Loading..."
-        ) : (
-          <div>
-            <h2>Students</h2>
-            <div className="students">
-              {students.map(student => {
-                return (
-                  <ul className="studentList" key={student.id}>
-                    <li>{student.name}</li>
-                  </ul>
-                );
-              })}
-            </div>
-          </div>
-        )}
+      <div>
+        <Nav blocks={blocks} />
+        <Router>
+          <Students path="/" blocks={blocks} />
+        </Router>
       </div>
     );
   }
   componentDidMount = () => {
-    api.getStudent().then(data => {
-      this.setState({ students: data, loading: false });
-    });
+    api.getBlocks().then(blocks => this.setState({ blocks }));
   };
 }
 export default Main;
