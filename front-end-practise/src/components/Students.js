@@ -8,6 +8,7 @@ class Main extends React.Component {
   };
   render() {
     const { students, loading } = this.state;
+
     return (
       <div>
         {loading === true ? (
@@ -29,10 +30,23 @@ class Main extends React.Component {
       </div>
     );
   }
+  componentDidUpdate = (prevProps, prevState) => {
+    const { block } = this.props;
+    console.log(block);
+    console.log("update");
+    if (block !== prevProps.block) {
+      this.fetchStudents(block);
+    }
+  };
+
   componentDidMount = () => {
-    api.getStudent().then(data => {
-      this.setState({ students: data, loading: false });
-    });
+    const { block } = this.props;
+    this.fetchStudents(block);
+  };
+
+  fetchStudents = async block => {
+    const students = await api.getStudent(block);
+    this.setState({ students, loading: false });
   };
 }
 export default Main;

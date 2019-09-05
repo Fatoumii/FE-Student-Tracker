@@ -2,7 +2,7 @@ import React from "react";
 import Students from "./Students";
 import * as api from "../utils";
 import Nav from "./Nav";
-import { Router } from "@reach/router";
+// import { Router } from "@reach/router";
 
 class Main extends React.Component {
   state = {
@@ -10,11 +10,13 @@ class Main extends React.Component {
   };
   render() {
     const { blocks } = this.state;
+    const { block } = this.props;
+
     return (
       <div>
         <Nav blocks={blocks} />
         {/* <Router> */}
-        <Students path="/" blocks={blocks} />
+        <Students path="/" blocks={blocks} block={block} />
         {/* </Router> */}
       </div>
     );
