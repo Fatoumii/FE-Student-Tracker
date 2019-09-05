@@ -8,5 +8,4 @@ const Header = () => {
     </Link>
   );
 };
-//link back to /students
 export default Header;

@@ -70,6 +70,9 @@ body {
   cursor: pointer;
   height: 7vh;
   font-family: "Times New Roman";
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .blocks:hover {
   transform: scale(1.05);
