@@ -13,9 +13,9 @@ class Main extends React.Component {
     return (
       <div>
         <Nav blocks={blocks} />
-        <Router>
-          <Students path="/" blocks={blocks} />
-        </Router>
+        {/* <Router> */}
+        <Students path="/" blocks={blocks} />
+        {/* </Router> */}
       </div>
     );
   }

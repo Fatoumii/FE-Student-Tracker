@@ -1,6 +1,5 @@
 import React from "react";
 import * as api from "../utils";
-// import Nav from "./Nav";
 
 class Main extends React.Component {
   state = {
@@ -8,11 +7,9 @@ class Main extends React.Component {
     loading: true
   };
   render() {
-    // const { blocks } = this.props;
     const { students, loading } = this.state;
     return (
       <div>
-        {/* <Nav blocks={blocks} /> */}
         {loading === true ? (
           "Loading..."
         ) : (

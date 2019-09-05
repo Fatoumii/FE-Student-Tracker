@@ -13,7 +13,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* font-variant: small-caps; */
+  text-decoration: none;
+  color: rgb(167, 84, 16);
+  font-size: 35px;
 }
 
 .router {
