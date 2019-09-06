@@ -17,7 +17,7 @@ class SingleStudent extends React.Component {
 
         {blockHistory.map(block => {
           return (
-            <p>
+            <p key={block.id}>
               {block.name} - {block.number}
             </p>
           );

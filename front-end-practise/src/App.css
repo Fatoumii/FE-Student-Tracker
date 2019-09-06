@@ -22,7 +22,6 @@ body {
   background-color: whitesmoke;
   height: 80vh;
   overflow: scroll;
-  border: 2px solid red;
 }
 
 .studentList {
@@ -48,11 +47,12 @@ body {
   flex-direction: rows;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  border: 1.5px solid cadetblue;
 }
 
 .nav {
-  border: 1.5px solid rgb(224, 228, 10);
+  /* border: 1.5px solid rgb(48, 47, 47); */
+  margin: 5px;
+  border-top: none;
   height: 15vh;
   display: flex;
   flex-direction: rows;
@@ -62,7 +62,9 @@ body {
 }
 .blocks {
   text-decoration: none;
-  border: none;
+  border: 1.5px solid rgb(189, 186, 186);
+  box-shadow: 0px 0px 7px 1px rgb(189, 186, 186);
+  border-top: none;
   color: rgb(167, 84, 16);
   width: 17%;
   font-size: 18px;
@@ -79,7 +81,6 @@ body {
 .blocks:hover {
   transform: scale(1.05);
   transition: 0.5s;
-
   box-shadow: 0px 0px 15px 3px rgb(189, 186, 186);
 }
 .footer {
