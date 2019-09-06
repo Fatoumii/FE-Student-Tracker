@@ -22,12 +22,12 @@ class Main extends React.Component {
             <h2>Students</h2>
             <p>{students.length} students</p>
             <div className="students">
-              {students.map(student => {
+              {students.map((student, i) => {
                 return (
                   <Link
                     to={`/students/${student._id}`}
                     className="studentList"
-                    key={student.id}
+                    key={i}
                   >
                     {student.name}
                   </Link>

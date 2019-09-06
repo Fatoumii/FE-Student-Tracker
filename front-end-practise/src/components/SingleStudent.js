@@ -14,9 +14,9 @@ class SingleStudent extends React.Component {
         <h3>Started with us on Cohort {student.startingCohort}</h3>
         <h4>Block History:</h4>
 
-        {blockHistory.map(block => {
+        {blockHistory.map((block, i) => {
           return (
-            <p key={block.id}>
+            <p key={i}>
               {block.name} - {block.number}
             </p>
           );
