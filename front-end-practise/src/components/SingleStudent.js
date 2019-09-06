@@ -1,6 +1,7 @@
 import React from "react";
 import * as api from "../utils";
 
+//HARD CODED - UTILS
 class SingleStudent extends React.Component {
   state = {
     student: [],

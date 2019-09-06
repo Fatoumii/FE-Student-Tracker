@@ -9,7 +9,7 @@ class Main extends React.Component {
   };
   render() {
     const { students, loading } = this.state;
-    console.log(students);
+    console.log(students.length);
     // const { blocks } = this.props;
     // console.log(blocks); need this to be the slug so can use this name to change the students
     return (
@@ -19,6 +19,7 @@ class Main extends React.Component {
         ) : (
           <div>
             <h2>Students</h2>
+            <p>{students.length} students</p>
             <div className="students">
               {students.map(student => {
                 return (
