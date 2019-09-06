@@ -20,9 +20,8 @@ class App extends React.Component {
         <Header />
         <Router className="router">
           <Home path="/" />
-          <Main path="/students" blocks={blocks} />
+          <Main path="/students/*" blocks={blocks} />
           <Main path="/blocks/:block" />
-          {/* <Students path="/students/:id" /> */}
         </Router>
         <Footer />
       </div>
