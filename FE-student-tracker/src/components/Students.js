@@ -12,7 +12,7 @@ class Main extends React.Component {
     // const { blocks } = this.props;
     // console.log(blocks); need this to be the slug so can use this name to change the students
     //make sure numberof students changes
-    //two loadings, here and on nav- choose one
+    ///two loadings, here and on nav- choose one
     return (
       <div>
         {loading === true ? (
