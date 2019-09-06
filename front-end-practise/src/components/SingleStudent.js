@@ -4,7 +4,7 @@ import * as api from "../utils";
 class SingleStudent extends React.Component {
   state = {
     student: [],
-    blockHistory: {}
+    blockHistory: []
   };
   render() {
     const { blockHistory, student } = this.state;
@@ -14,7 +14,13 @@ class SingleStudent extends React.Component {
         <h3>Started with us on Cohort {student.startingCohort}</h3>
         <h4>Block History:</h4>
 
-        {console.log(blockHistory)}
+        {blockHistory.map(block => {
+          return (
+            <p>
+              {block.name} - {block.number}
+            </p>
+          );
+        })}
       </div>
     );
   }

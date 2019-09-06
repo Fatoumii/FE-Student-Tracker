@@ -9,6 +9,7 @@ class Main extends React.Component {
   };
   render() {
     const { students, loading } = this.state;
+    console.log(students);
     // const { blocks } = this.props;
     // console.log(blocks); need this to be the slug so can use this name to change the students
     return (
