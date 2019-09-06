@@ -50,9 +50,10 @@ body {
 }
 
 .nav {
-  /* border: 1.5px solid rgb(48, 47, 47); */
-  margin: 5px;
-  border-top: none;
+  border-bottom: 0.5px double rgb(94, 91, 91);
+  border-top: 0.5px double whitesmoke;
+  border-style: double;
+  margin: 10px 15px 0px 15px;
   height: 15vh;
   display: flex;
   flex-direction: rows;
