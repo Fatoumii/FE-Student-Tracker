@@ -17,8 +17,7 @@ export const getBlocks = async () => {
 
 export const getStudentById = async _id => {
   const { data } = await axios.get(
-    `https://nc-student-tracker.herokuapp.com/api/students/5d41728fe6be242342bc7257`
+    `https://nc-student-tracker.herokuapp.com/api/students/${_id}`
   );
   return data.student;
 };
-//by ID is hardcoded - can't figure what needs to be passed through, _id is coming up as undefined

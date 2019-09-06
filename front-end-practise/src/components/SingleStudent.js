@@ -1,7 +1,6 @@
 import React from "react";
 import * as api from "../utils";
 
-//HARD CODED - UTILS
 class SingleStudent extends React.Component {
   state = {
     student: [],
@@ -28,8 +27,8 @@ class SingleStudent extends React.Component {
   componentDidMount = () => {
     this.fetchSingleStudent();
   };
-  fetchSingleStudent = async student_id => {
-    const student = await api.getStudentById(student_id);
+  fetchSingleStudent = async () => {
+    const student = await api.getStudentById(this.props.student_id);
     this.setState({ student, blockHistory: student.blockHistory });
   };
 }
