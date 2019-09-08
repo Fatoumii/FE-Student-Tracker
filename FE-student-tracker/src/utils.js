@@ -12,12 +12,12 @@ export const getBlocks = async () => {
   const blocks = await axios.get(
     "https://nc-student-tracker.herokuapp.com/api/blocks"
   );
-  return blocks.data.blocks.map(block => block.name);
+  return blocks.data;
 };
 
-export const getStudentById = async _id => {
+export const getStudentById = async id => {
   const { data } = await axios.get(
-    `https://nc-student-tracker.herokuapp.com/api/students/${_id}`
+    `https://nc-student-tracker.herokuapp.com/api/students/${id}`
   );
   return data.student;
 };

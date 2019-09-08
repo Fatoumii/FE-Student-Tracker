@@ -8,32 +8,27 @@ import SingleStudent from "./SingleStudent";
 class Main extends React.Component {
   state = {
     blocks: [],
-    loading: true
+    slugs: []
   };
   render() {
-    const { blocks, loading } = this.state;
-    const { block } = this.props;
-
+    const { blocks, slugs } = this.state;
     return (
       <div>
-        {loading === true ? (
-          "Loading..."
-        ) : (
-          <div>
-            <Nav blocks={blocks} />
-            <Router>
-              <Students path="/" blocks={blocks} block={block} />
-              <SingleStudent path="/:student_id" />
-            </Router>
-          </div>
-        )}
+        <Nav blocks={blocks} slugs={slugs} />
+        <Router>
+          <Students path="/" blocks={blocks} slugs={slugs} />
+          <SingleStudent path="/:student_id" />
+        </Router>
       </div>
     );
   }
-  componentDidMount = () => {
-    api.getBlocks().then(blocks => this.setState({ blocks, loading: false }));
+
+  componentDidMount = async () => {
+    const block = await api.getBlocks();
+    const blockName = block.blocks.map(block => block.name);
+    const slugs = block.blocks.map(block => block.slug);
+    this.setState({ blocks: blockName, slugs });
   };
 }
-export default Main;
 
-//keep one loading
+export default Main;

@@ -28,9 +28,12 @@ class SingleStudent extends React.Component {
     this.fetchSingleStudent();
   };
   fetchSingleStudent = async () => {
-    const student = await api.getStudentById(this.props.student_id);
+    const { student_id } = this.props;
+    const student = await api.getStudentById(student_id);
     this.setState({ student, blockHistory: student.blockHistory });
   };
 }
 
 export default SingleStudent;
+
+//single student - how many times a block has been repeated

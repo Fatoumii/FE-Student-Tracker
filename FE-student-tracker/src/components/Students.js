@@ -2,15 +2,15 @@ import React from "react";
 import * as api from "../utils";
 import { Link } from "@reach/router";
 
-class Main extends React.Component {
+class Students extends React.Component {
   state = {
     students: [],
     loading: true
   };
   render() {
     const { students, loading } = this.state;
-    // const { blocks } = this.props;
-    // console.log(blocks); need this to be the slug so can use this name to change the students
+    console.log(this.props.slugs, "array of slugs", students[0]);
+
     //make sure numberof students changes
     ///two loadings, here and on nav- choose one
     return (
@@ -40,20 +40,20 @@ class Main extends React.Component {
     );
   }
   componentDidUpdate = (prevProps, prevState) => {
-    const { block } = this.props;
-    if (block !== prevProps.block) {
-      this.fetchStudents(block);
+    const { blocks } = this.props;
+    if (blocks !== prevProps.blocks) {
+      this.fetchStudents(blocks);
     }
   };
 
   componentDidMount = () => {
-    const { block } = this.props;
-    this.fetchStudents(block);
+    this.fetchStudents();
   };
 
-  fetchStudents = async block => {
-    const students = await api.getStudent(block);
+  fetchStudents = async () => {
+    const { blocks } = this.props;
+    const students = await api.getStudent(blocks);
     this.setState({ students, loading: false });
   };
 }
-export default Main;
+export default Students;

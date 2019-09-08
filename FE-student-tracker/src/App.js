@@ -7,8 +7,6 @@ import Footer from "./components/Footer";
 import Main from "./components/Main";
 import * as api from "./utils";
 
-// import ID from "./components/ID";
-
 class App extends React.Component {
   state = {
     blocks: []
@@ -21,7 +19,7 @@ class App extends React.Component {
         <Router className="router">
           <Home path="/" />
           <Main path="/students/*" blocks={blocks} />
-          <Main path="/blocks/:block" />
+          <Main path="/blocks/:slug" />
         </Router>
         <Footer />
       </div>
