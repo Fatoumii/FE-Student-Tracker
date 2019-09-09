@@ -4,6 +4,7 @@ import * as api from "../utils";
 import Nav from "./Nav";
 import { Router } from "@reach/router";
 import SingleStudent from "./SingleStudent";
+import AddStudent from "./AddStudent";
 
 class Main extends React.Component {
   state = {
@@ -18,6 +19,7 @@ class Main extends React.Component {
         <Router>
           <Students path="/" blocks={blocks} slugs={slugs} />
           <SingleStudent path="/:student_id" />
+          <AddStudent path="/add-student" />
         </Router>
       </div>
     );

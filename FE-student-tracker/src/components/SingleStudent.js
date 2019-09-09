@@ -12,7 +12,7 @@ class SingleStudent extends React.Component {
     return (
       <div>
         {deletedSuccessfully === true ? (
-          <h1>{student.name} has now been deleted.</h1>
+          <h1>{student.name} has now been deleted</h1>
         ) : (
           <div>
             <h1>{student.name}</h1>
@@ -50,3 +50,5 @@ class SingleStudent extends React.Component {
 export default SingleStudent;
 
 //single student - how many times a block has been repeated
+//when deleted and refreshed, student details are empty with error
+//loading

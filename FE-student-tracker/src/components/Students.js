@@ -9,10 +9,9 @@ class Students extends React.Component {
   };
   render() {
     const { students, loading } = this.state;
-    console.log(this.props.slugs, "array of slugs", students[0]);
-
+    // console.log(this.props.slugs, "array of slugs", students[0]);
     //make sure numberof students changes
-    ///two loadings, here and on nav- choose one
+
     return (
       <div>
         {loading === true ? (
@@ -21,6 +20,9 @@ class Students extends React.Component {
           <div>
             <h2>Students</h2>
             <p>{students.length} students</p>
+            <Link to="/students/add-student">
+              <button>Add Student</button>
+            </Link>
             <div className="students">
               {students.map((student, i) => {
                 return (
