@@ -21,3 +21,10 @@ export const getStudentById = async id => {
   );
   return data.student;
 };
+
+export const deleteStudent = async id => {
+  const { data } = await axios.delete(
+    `https://nc-student-tracker.herokuapp.com/api/students/${id}`
+  );
+  return data.student;
+};
