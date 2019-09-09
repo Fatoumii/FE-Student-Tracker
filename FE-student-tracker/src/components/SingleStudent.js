@@ -21,6 +21,10 @@ class SingleStudent extends React.Component {
             </p>
           );
         })}
+        <div>
+          <button>Delete</button>
+          <button>Progress Student</button>
+        </div>
       </div>
     );
   }
