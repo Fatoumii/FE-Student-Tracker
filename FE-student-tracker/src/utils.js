@@ -1,18 +1,18 @@
 import axios from "axios";
 
 export const getStudent = async blocks => {
-  const student = await axios.get(
+  const { data } = await axios.get(
     "https://nc-student-tracker.herokuapp.com/api/students",
     { params: { blocks } }
   );
-  return student.data.students;
+  return data.students;
 };
 
 export const getBlocks = async () => {
-  const blocks = await axios.get(
+  const { data } = await axios.get(
     "https://nc-student-tracker.herokuapp.com/api/blocks"
   );
-  return blocks.data;
+  return data;
 };
 
 export const getStudentById = async id => {
@@ -27,4 +27,14 @@ export const deleteStudent = async id => {
     `https://nc-student-tracker.herokuapp.com/api/students/${id}`
   );
   return data.student;
+};
+export const addStudent = async (name, startingCohort) => {
+  const { data } = await axios.post(
+    "https://nc-student-tracker.herokuapp.com/api/students",
+    {
+      name: name,
+      startingCohort: startingCohort
+    }
+  );
+  return data.students;
 };
