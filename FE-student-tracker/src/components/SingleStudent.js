@@ -9,6 +9,7 @@ class SingleStudent extends React.Component {
   };
   render() {
     const { blockHistory, student, deletedSuccessfully } = this.state;
+    console.log(blockHistory);
     return (
       <div>
         {deletedSuccessfully === true ? (
@@ -26,7 +27,9 @@ class SingleStudent extends React.Component {
               );
             })}
             <button onClick={this.handleDelete}>Delete</button>
-            <button>Progress Student</button>
+            <button disabled={console.log(blockHistory.reverse()[0])}>
+              Progress Student
+            </button>
           </div>
         )}
       </div>
@@ -52,3 +55,4 @@ export default SingleStudent;
 //single student - how many times a block has been repeated
 //when deleted and refreshed, student details are empty with error
 //loading
+//disable progress button if student has graduated

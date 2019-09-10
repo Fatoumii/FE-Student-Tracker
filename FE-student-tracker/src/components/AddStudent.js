@@ -3,8 +3,8 @@ import * as api from "../utils";
 
 class AddStudent extends React.Component {
   state = {
-    name: "Test",
-    startingCohort: 1,
+    name: "",
+    startingCohort: "",
     addedSuccessfully: false
   };
   render() {
@@ -23,7 +23,7 @@ class AddStudent extends React.Component {
                   placeholder="Name..."
                   value={name}
                   id="name"
-                  onChange={this.handleChange}
+                  onChange={this.handleName}
                 />
               </label>
               <br></br>
@@ -33,7 +33,7 @@ class AddStudent extends React.Component {
                   placeholder="Starting Cohort..."
                   value={startingCohort}
                   id="startingCohort"
-                  onChange={this.handleChange}
+                  onChange={this.handleCohort}
                 />
               </label>
               <br></br>
@@ -52,14 +52,15 @@ class AddStudent extends React.Component {
     this.setState({ addedSuccessfully: true });
   };
 
-  handleChange = event => {
+  handleName = event => {
     const { value } = event.target;
     this.setState({
-      name: value,
-      startingCohort: value
+      name: value
     });
+  };
+  handleCohort = event => {
+    const { value } = event.target;
+    this.setState({ startingCohort: value });
   };
 }
 export default AddStudent;
-
-//HARDCODED
