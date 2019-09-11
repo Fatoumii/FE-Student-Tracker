@@ -9,18 +9,25 @@ import AddStudent from "./AddStudent";
 class Main extends React.Component {
   state = {
     blocks: [],
-    slugs: []
+    slugs: [],
+    loading: true
   };
   render() {
-    const { blocks, slugs } = this.state;
+    const { blocks, slugs, loading } = this.state;
     return (
       <div>
-        <Nav blocks={blocks} slugs={slugs} />
-        <Router>
-          <Students path="/" blocks={blocks} slugs={slugs} />
-          <SingleStudent path="/:student_id" />
-          <AddStudent path="/add-student" />
-        </Router>
+        {loading === true ? (
+          "Loading..."
+        ) : (
+          <div>
+            <Nav blocks={blocks} slugs={slugs} />
+            <Router>
+              <Students path="/" blocks={blocks} slugs={slugs} />
+              <SingleStudent path="/:student_id" />
+              <AddStudent path="/add-student" />
+            </Router>
+          </div>
+        )}
       </div>
     );
   }
@@ -29,7 +36,7 @@ class Main extends React.Component {
     const block = await api.getBlocks();
     const blockName = block.blocks.map(block => block.name);
     const slugs = block.blocks.map(block => block.slug);
-    this.setState({ blocks: blockName, slugs });
+    this.setState({ blocks: blockName, slugs, loading: false });
   };
 }
 

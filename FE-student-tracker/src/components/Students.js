@@ -10,7 +10,7 @@ class Students extends React.Component {
   render() {
     const { students, loading } = this.state;
     // console.log(this.props.slugs, "array of slugs", students[0]);
-    //make sure numberof students changes
+    //make sure numberof students changes WHEN NAV CHANGES
 
     return (
       <div>

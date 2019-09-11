@@ -1,6 +1,6 @@
 import React from "react";
 import * as api from "../utils";
-
+//CSS
 class AddStudent extends React.Component {
   state = {
     name: "",
@@ -17,27 +17,27 @@ class AddStudent extends React.Component {
           <div>
             <h2>Add a student below:</h2>
             <form onSubmit={this.handleSubmit}>
-              <label htmlFor="name">
-                Name:
+              <label>
+                Name:<br></br>
                 <input
                   placeholder="Name..."
                   value={name}
-                  id="name"
                   onChange={this.handleName}
                 />
               </label>
               <br></br>
-              <label htmlFor="startingCohort">
-                Starting Cohort:
+              <label>
+                Starting Cohort: <br></br>
                 <input
-                  placeholder="Starting Cohort..."
+                  placeholder="Starting cohort..."
                   value={startingCohort}
-                  id="startingCohort"
                   onChange={this.handleCohort}
                 />
               </label>
               <br></br>
-              <input type="submit" value="Submit"></input>
+              <button type="submit" className="button">
+                Submit
+              </button>
             </form>
           </div>
         )}
@@ -64,3 +64,4 @@ class AddStudent extends React.Component {
   };
 }
 export default AddStudent;
+//disbale button if nothing is inputted
