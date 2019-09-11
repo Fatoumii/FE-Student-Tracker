@@ -93,7 +93,7 @@ a {
   text-decoration: none;
   color: whitesmoke;
 }
-button {
+/* button {
   font-family: "Times New Roman";
   font-variant: small-caps;
   font-size: 16px;
@@ -106,12 +106,12 @@ button {
 
   border-radius: 3px;
   margin: 10px;
-}
-button:hover {
+} */
+/* button:hover {
   cursor: pointer;
   transform: scale(1.05);
   transition: 0.5s;
-}
+} */
 
 input {
   height: 3vh;

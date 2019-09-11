@@ -29,13 +29,17 @@ class AddStudent extends React.Component {
               <label>
                 Starting Cohort: <br></br>
                 <input
-                  placeholder="Starting cohort..."
+                  placeholder="Enter a number..."
                   value={startingCohort}
                   onChange={this.handleCohort}
                 />
               </label>
               <br></br>
-              <button type="submit" className="button">
+              <button
+                type="submit"
+                className="button"
+                disabled={name.length === 0 || startingCohort.length === 0}
+              >
                 Submit
               </button>
             </form>
@@ -60,8 +64,11 @@ class AddStudent extends React.Component {
   };
   handleCohort = event => {
     const { value } = event.target;
-    this.setState({ startingCohort: value });
+    if (value.match(/^[0-9]+$/g)) {
+      this.setState({ startingCohort: value });
+    }
   };
 }
 export default AddStudent;
-//disbale button if nothing is inputted
+
+//allows you to delete the numbers exceot the first. Will wirk if highlighted and replaced. needs a number?
