@@ -93,7 +93,7 @@ a {
   text-decoration: none;
   color: whitesmoke;
 }
-/* button {
+button {
   font-family: "Times New Roman";
   font-variant: small-caps;
   font-size: 16px;
@@ -103,15 +103,18 @@ a {
   background-color: whitesmoke;
   color: rgb(167, 84, 16);
   box-shadow: 0px 0px 15px 0.5px rgb(189, 186, 186);
-
   border-radius: 3px;
   margin: 10px;
-} */
-/* button:hover {
+}
+button:hover {
   cursor: pointer;
   transform: scale(1.05);
   transition: 0.5s;
-} */
+}
+button:disabled {
+  color: rgb(161, 159, 159);
+  transform: none;
+}
 
 input {
   height: 3vh;
