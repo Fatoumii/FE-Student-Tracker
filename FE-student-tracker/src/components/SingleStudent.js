@@ -5,31 +5,41 @@ class SingleStudent extends React.Component {
   state = {
     student: [],
     blockHistory: [],
-    deletedSuccessfully: false
+    deletedSuccessfully: false,
+    loading: true
   };
   render() {
-    const { blockHistory, student, deletedSuccessfully } = this.state;
-    console.log(blockHistory);
+    const { blockHistory, student, deletedSuccessfully, loading } = this.state;
     return (
       <div>
-        {deletedSuccessfully === true ? (
-          <h1>{student.name} has now been deleted</h1>
+        {loading === true ? (
+          "Loading..."
         ) : (
           <div>
-            <h1>{student.name}</h1>
-            <h3>Started with us on Cohort {student.startingCohort}</h3>
-            <h4>Block History:</h4>
-            {blockHistory.map((block, i) => {
-              return (
-                <p key={i}>
-                  {block.name} - {block.number}
-                </p>
-              );
-            })}
-            <button onClick={this.handleDelete}>Delete</button>
-            <button disabled={console.log(blockHistory.reverse()[0])}>
-              Progress Student
-            </button>
+            {deletedSuccessfully === true ? (
+              <h1>{student.name} has now been deleted</h1>
+            ) : (
+              <div>
+                <h1>{student.name}</h1>
+                <h3>Started with us on Cohort {student.startingCohort}</h3>
+                <h4>Block History:</h4>
+                {blockHistory.map((block, i) => {
+                  return (
+                    <p key={i}>
+                      {block.name} - {block.number}
+                    </p>
+                  );
+                })}
+                <button onClick={this.handleDelete}>Delete</button>
+                <button
+                  disabled={blockHistory.some(
+                    block => block.name === "Graduated"
+                  )}
+                >
+                  Progress Student
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -41,7 +51,11 @@ class SingleStudent extends React.Component {
   fetchSingleStudent = async () => {
     const { student_id } = this.props;
     const student = await api.getStudentById(student_id);
-    this.setState({ student, blockHistory: student.blockHistory });
+    this.setState({
+      student,
+      blockHistory: student.blockHistory,
+      loading: false
+    });
   };
   handleDelete = () => {
     const { student_id } = this.props;
