@@ -125,3 +125,8 @@ input {
 .button {
   width: 15vw;
 }
+
+a {
+  color: rgb(167, 84, 16);
+  text-decoration: underline;
+}

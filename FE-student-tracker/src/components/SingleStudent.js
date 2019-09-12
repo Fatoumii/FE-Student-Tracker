@@ -17,7 +17,12 @@ class SingleStudent extends React.Component {
         ) : (
           <div>
             {deletedSuccessfully === true ? (
-              <h1>{student.name} has now been deleted</h1>
+              <div>
+                <h1>{student.name} has now been deleted</h1>
+                <p>
+                  Go back to the list of students <a href="/students">here</a>
+                </p>
+              </div>
             ) : (
               <div>
                 <h1>{student.name}</h1>
@@ -59,6 +64,7 @@ class SingleStudent extends React.Component {
   };
   handleDelete = () => {
     const { student_id } = this.props;
+    console.log(student_id);
     api.deleteStudent(student_id);
     this.setState({ deletedSuccessfully: true });
   };
@@ -67,6 +73,3 @@ class SingleStudent extends React.Component {
 export default SingleStudent;
 
 //single student - how many times a block has been repeated
-//when deleted and refreshed, student details are empty with error
-//loading
-//disable progress button if student has graduated

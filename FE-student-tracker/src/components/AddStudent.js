@@ -1,6 +1,6 @@
 import React from "react";
 import * as api from "../utils";
-//CSS
+
 class AddStudent extends React.Component {
   state = {
     name: "",
@@ -12,7 +12,13 @@ class AddStudent extends React.Component {
     return (
       <div>
         {addedSuccessfully === true ? (
-          <h1> {name} has been added </h1>
+          <div>
+            {" "}
+            <h1> {name} has been added </h1>
+            <p>
+              Go back to the list of students <a href="/students">here</a>
+            </p>
+          </div>
         ) : (
           <div>
             <h2>Add a student below:</h2>
