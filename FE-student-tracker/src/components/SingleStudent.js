@@ -1,15 +1,24 @@
 import React from "react";
 import * as api from "../utils";
+import _ from "lodash";
 
 class SingleStudent extends React.Component {
   state = {
     student: [],
     blockHistory: [],
     deletedSuccessfully: false,
-    loading: true
+    loading: true,
+    blocks: []
   };
   render() {
-    const { blockHistory, student, deletedSuccessfully, loading } = this.state;
+    const {
+      blockHistory,
+      student,
+      deletedSuccessfully,
+      loading,
+      blocks
+    } = this.state;
+    console.log(blocks);
     return (
       <div>
         {loading === true ? (
@@ -28,10 +37,10 @@ class SingleStudent extends React.Component {
                 <h1>{student.name}</h1>
                 <h3>Started with us on Cohort {student.startingCohort}</h3>
                 <h4>Block History:</h4>
-                {blockHistory.map((block, i) => {
+                {_.uniq(blocks).map((block, i) => {
                   return (
                     <p key={i}>
-                      {block.name} - {block.number}
+                      {block} - {block.length}
                     </p>
                   );
                 })}
@@ -56,18 +65,26 @@ class SingleStudent extends React.Component {
   fetchSingleStudent = async () => {
     const { student_id } = this.props;
     const student = await api.getStudentById(student_id);
+    const blocks = student.blockHistory.map(block => block.name);
     this.setState({
       student,
       blockHistory: student.blockHistory,
-      loading: false
+      loading: false,
+      blocks
     });
   };
   handleDelete = () => {
     const { student_id } = this.props;
-    console.log(student_id);
     api.deleteStudent(student_id);
     this.setState({ deletedSuccessfully: true });
   };
+  // handleRepeats = () => {
+  //   const { blocks } = this.state;
+  //   var count = {};
+  //   blocks.forEach(function(i) {
+  //     count[i] = (count[i] || 0) + 1;
+  //   });
+  // };
 }
 
 export default SingleStudent;
