@@ -89,8 +89,8 @@ footer {
   align-items: center;
   display: flex;
 }
-a {
-  text-decoration: none;
+footer a {
+  font-size: 14px;
   color: whitesmoke;
 }
 button {
@@ -114,6 +114,7 @@ button:hover {
 button:disabled {
   color: rgb(161, 159, 159);
   transform: none;
+  cursor: default;
 }
 
 input {
