@@ -1,6 +1,5 @@
 import React from "react";
 import * as api from "../utils";
-import _ from "lodash";
 
 class SingleStudent extends React.Component {
   state = {
@@ -36,9 +35,9 @@ class SingleStudent extends React.Component {
                 <h1>{student.name}</h1>
                 <h3>Started with us on Cohort {student.startingCohort}</h3>
                 <h4>Block History:</h4>
-                {blocks.map((block, i) => {
-                  return <p key={i}>{block}</p>;
-                })}
+                {blocks.map((block, i) => (
+                  <p key={i}>{block}</p>
+                ))}
                 <button onClick={this.handleDelete}>Delete</button>
                 <button
                   disabled={blockHistory.some(
@@ -76,5 +75,3 @@ class SingleStudent extends React.Component {
 }
 
 export default SingleStudent;
-
-//single student - how many times a block has been repeated _.uniq
