@@ -64,17 +64,19 @@ class AddStudent extends React.Component {
 
   handleName = event => {
     const { value } = event.target;
+    if (value.match(/[^a-z]+/gi)) {
+      return;
+    }
     this.setState({
       name: value
     });
   };
   handleCohort = event => {
     const { value } = event.target;
-    if (value.match(/^[0-9]+$/g)) {
-      this.setState({ startingCohort: value });
+    if (value.match(/[^0-9]+$/g)) {
+      return;
     }
+    this.setState({ startingCohort: value });
   };
 }
 export default AddStudent;
-
-//allows you to delete the numbers exceot the first. Will wirk if highlighted and replaced. needs a number?
