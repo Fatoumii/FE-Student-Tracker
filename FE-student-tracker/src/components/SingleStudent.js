@@ -36,7 +36,9 @@ class SingleStudent extends React.Component {
                 <h3>Started with us on Cohort {student.startingCohort}</h3>
                 <h4>Block History:</h4>
                 {blocks.map((block, i) => (
-                  <p key={i}>{block}</p>
+                  <p key={i} className="eachBlock">
+                    {block}
+                  </p>
                 ))}
                 <button onClick={this.handleDelete}>Delete</button>
                 <button

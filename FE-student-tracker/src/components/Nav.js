@@ -5,7 +5,6 @@ const Nav = props => {
   const { blocks } = props;
   return (
     <div>
-      <h2>Blocks</h2>
       <div className="nav">
         {blocks.map(block => {
           return (

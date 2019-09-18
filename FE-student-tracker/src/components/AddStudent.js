@@ -43,7 +43,6 @@ class AddStudent extends React.Component {
               <br></br>
               <button
                 type="submit"
-                className="button"
                 disabled={name.length === 0 || startingCohort.length === 0}
               >
                 Submit

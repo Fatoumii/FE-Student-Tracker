@@ -131,3 +131,30 @@ a {
   color: rgb(167, 84, 16);
   text-decoration: underline;
 }
+.eachBlock {
+  /* font-variant: normal; */
+}
+
+@media only screen and (max-width: 600px) {
+  .App {
+    font-size: 13.5px;
+  }
+  .blocks {
+    font-size: 14px;
+    width: 26vw;
+    height: 5vh;
+    margin-bottom: 5px;
+  }
+  .nav {
+    border: none;
+  }
+  footer p {
+    visibility: hidden;
+  }
+  footer {
+    font-size: 8px;
+  }
+  input {
+    width: 40vw;
+  }
+}
