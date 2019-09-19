@@ -63,7 +63,7 @@ class AddStudent extends React.Component {
 
   handleName = event => {
     const { value } = event.target;
-    if (value.match(/[^a-z]+/gi)) {
+    if (value.match(/[^a-z|\s]+/gi)) {
       return;
     }
     this.setState({
