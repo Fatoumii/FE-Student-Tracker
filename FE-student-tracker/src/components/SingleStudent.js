@@ -7,7 +7,8 @@ class SingleStudent extends React.Component {
     blockHistory: [],
     deletedSuccessfully: false,
     loading: true,
-    blocks: []
+    blocks: [],
+    progress: false
   };
   render() {
     const {
@@ -15,7 +16,8 @@ class SingleStudent extends React.Component {
       student,
       deletedSuccessfully,
       loading,
-      blocks
+      blocks,
+      progress
     } = this.state;
     return (
       <div>
@@ -23,29 +25,44 @@ class SingleStudent extends React.Component {
           "Loading..."
         ) : (
           <div>
-            {deletedSuccessfully === true ? (
+            {progress === true ? (
               <div>
-                <h1>{student.name} has now been deleted</h1>
+                <h1>
+                  {student.name} has now been progressed to the next block
+                </h1>
                 <p>
                   Go back to the list of students <a href="/students">here</a>
                 </p>
               </div>
             ) : (
               <div>
-                <h1>{student.name}</h1>
-                <h3>Started with us on Cohort {student.startingCohort}</h3>
-                <h4>Block History:</h4>
-                {blocks.map((block, i) => (
-                  <p key={i}>{block}</p>
-                ))}
-                <button onClick={this.handleDelete}>Delete</button>
-                <button
-                  disabled={blockHistory.some(
-                    block => block.name === "Graduated"
-                  )}
-                >
-                  Progress Student
-                </button>
+                {deletedSuccessfully === true ? (
+                  <div>
+                    <h1>{student.name} has now been deleted</h1>
+                    <p>
+                      Go back to the list of students{" "}
+                      <a href="/students">here</a>
+                    </p>
+                  </div>
+                ) : (
+                  <div>
+                    <h1>{student.name}</h1>
+                    <h3>Started with us on Cohort {student.startingCohort}</h3>
+                    <h4>Block History:</h4>
+                    {blocks.map((block, i) => (
+                      <p key={i}>{block}</p>
+                    ))}
+                    <button onClick={this.handleDelete}>Delete</button>
+                    <button
+                      disabled={blockHistory.some(
+                        block => block.name === "Graduated"
+                      )}
+                      onClick={this.handleProgress}
+                    >
+                      Progress Student
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -71,6 +88,11 @@ class SingleStudent extends React.Component {
     const { student_id } = this.props;
     api.deleteStudent(student_id);
     this.setState({ deletedSuccessfully: true });
+  };
+  handleProgress = async () => {
+    const { student_id } = this.props;
+    const updatedStudent = await api.updateStudentProgress(student_id);
+    this.setState({ student: updatedStudent, progress: true });
   };
 }
 

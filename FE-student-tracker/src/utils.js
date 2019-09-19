@@ -38,3 +38,9 @@ export const addStudent = async (name, startingCohort) => {
   );
   return data.students;
 };
+export const updateStudentProgress = async id => {
+  const { data } = await axios.patch(
+    `https://nc-student-tracker.herokuapp.com/api/students/${id}?progress=true`
+  );
+  return data.student;
+};
