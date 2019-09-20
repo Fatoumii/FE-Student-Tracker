@@ -1,6 +1,5 @@
 import React from "react";
 import Pic from "../home.jpeg";
-import { Link } from "@reach/router";
 
 const Home = () => {
   return (
