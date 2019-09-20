@@ -1,6 +1,6 @@
 # FE-Test
 
-WIP
+WIP - need to ammed nav bar so component updates
 
 # Google Books
 
