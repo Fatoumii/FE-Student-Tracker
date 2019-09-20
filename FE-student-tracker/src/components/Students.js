@@ -9,9 +9,6 @@ class Students extends React.Component {
   };
   render() {
     const { students, loading } = this.state;
-    // console.log(this.props.slugs, "array of slugs", students[0]);
-    //make sure numberof students changes WHEN NAV CHANGES
-
     return (
       <div>
         {loading === true ? (
@@ -31,7 +28,12 @@ class Students extends React.Component {
                     className="studentList"
                     key={i}
                   >
-                    {student.name}
+                    {student.name} &nbsp;&nbsp;
+                    {student.currentBlock === "grad" ? "🎓" : null}
+                    {student.currentBlock === "proj" ? "👷🏽" : null}
+                    {student.currentBlock === "fe" ? "🖼️ " : null}
+                    {student.currentBlock === "be" ? "📈" : null}
+                    {student.currentBlock === "fun" ? "🔴" : null}
                   </Link>
                 );
               })}
