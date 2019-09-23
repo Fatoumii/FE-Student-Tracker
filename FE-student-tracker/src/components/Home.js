@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="home">
       <img src={Pic} alt="project phase celebrations" />
-      <div class="hometext">
+      <div className="hometext">
         <h3>Enter the site to view students and ammend their status</h3>
       </div>
       <button className="enter">
