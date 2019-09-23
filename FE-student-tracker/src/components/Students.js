@@ -5,8 +5,8 @@ import { Link } from "@reach/router";
 class Students extends React.Component {
   state = {
     students: [],
-    loading: true
-    // sortby: "name"
+    loading: true,
+    sortby: "name"
   };
   render() {
     const { students, loading } = this.state;
@@ -18,19 +18,23 @@ class Students extends React.Component {
           <div>
             <h2>Students</h2>
             <p>{students.length} students</p>
-            {/* <div> */}
-            <Link to="/students/add-student">
-              <button>Add Student</button>
-            </Link>
-            {/* <form>
-                Sort By:
+            <div>
+              <Link to="/students/add-student">
+                <button>Add Student</button>
+              </Link>
+              <br />
+              <br />
+              <form>
+                Sort By: <br />
                 <select onChange={this.handleChange}>
                   <option value="name"> Name </option>
                   <option value="startingCohort"> Starting Cohort </option>
                   <option value="currentBlock"> Current Block </option>
                 </select>
+                <br />
+                <br />
               </form>
-            </div> */}
+            </div>
             <div className="students">
               {students.map((student, i) => {
                 return (
@@ -63,20 +67,22 @@ class Students extends React.Component {
   };
 
   componentDidMount = () => {
-    const { block, sort_by } = this.props;
-    this.fetchStudents(block, sort_by);
+    const { block } = this.props;
+    const { sortby } = this.state;
+    this.fetchStudents(block, sortby);
   };
 
-  fetchStudents = async (block, sort_by) => {
-    const students = await api.getStudent(block, sort_by);
+  fetchStudents = async (block, sortby) => {
+    const students = await api.getStudent(block, sortby);
     this.setState({ students, loading: false });
   };
 
   handleChange = event => {
     const { value } = event.target;
-    const { block, sort_by } = this.props;
+    const { block } = this.props;
+    const { sortby } = this.state;
     this.setState({ sortby: value });
-    this.fetchStudents(block, sort_by);
+    this.fetchStudents(block, sortby);
   };
 }
 export default Students;
