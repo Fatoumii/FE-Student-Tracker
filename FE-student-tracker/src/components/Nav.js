@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "@reach/router";
 
 const Nav = props => {
-  const { blocks } = props;
+  const { slugs } = props;
   return (
     <div>
       <div className="nav">
-        {blocks.map(block => {
+        {slugs.map(slug => {
           return (
-            <Link to={`/blocks/${block}`} key={block} className="blocks">
-              {block}
+            <Link to={`/blocks/${slug}`} key={slug} className="blocks">
+              {slug}
             </Link>
           );
         })}

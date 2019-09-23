@@ -22,7 +22,7 @@ class Main extends React.Component {
           <div>
             <Nav blocks={blocks} slugs={slugs} />
             <Router>
-              <Students path="/" blocks={blocks} slugs={slugs} />
+              <Students path="/" blocks={blocks} />
               <SingleStudent path="/:student_id" />
               <AddStudent path="/add-student" />
             </Router>
