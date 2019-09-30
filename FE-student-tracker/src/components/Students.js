@@ -16,26 +16,22 @@ class Students extends React.Component {
           "Loading..."
         ) : (
           <div>
-            <h2>Students</h2>
+            <h2 className="studentTitle">Students</h2>
             <p>{students.length} students</p>
+            <div className="subheadingStyle">
+              <Link to="/students/add-student">
+                <button className="addStudent">Add Student</button>
+              </Link>
 
-            <Link to="/students/add-student">
-              <button>Add Student</button>
-            </Link>
-            <br />
-            <br />
-            <form>
-              Sort By: <br />
-              <select onChange={this.handleChange}>
-                <option></option>
-                <option value="name"> Name </option>
-                <option value="startingCohort"> Starting Cohort </option>
-                <option value="currentBlock"> Current Block </option>
-              </select>
-              <br />
-              <br />
-            </form>
-
+              <form>
+                Sort By: <br></br>
+                <select onChange={this.handleChange}>
+                  <option value="name"> Name </option>
+                  <option value="startingCohort"> Starting Cohort </option>
+                  <option value="currentBlock"> Current Block </option>
+                </select>
+              </form>
+            </div>
             <div className="students">
               {students.map((student, i) => {
                 return (
@@ -61,6 +57,7 @@ class Students extends React.Component {
   }
   componentDidUpdate = (prevProps, prevState) => {
     const { slug } = this.props;
+    console.log(this.props);
     const { sortby } = this.state;
     if (slug !== prevProps.slug || sortby !== prevState.sortby) {
       this.fetchStudents(slug, sortby);
@@ -68,7 +65,10 @@ class Students extends React.Component {
   };
 
   componentDidMount = () => {
-    this.fetchStudents();
+    const { slug } = this.props;
+    const { sortby } = this.state;
+
+    this.fetchStudents(slug, sortby);
   };
 
   fetchStudents = async (slug, sortby) => {

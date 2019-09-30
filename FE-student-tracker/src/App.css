@@ -53,7 +53,7 @@ body {
   margin: 10px 15px 0px 15px;
   height: 15vh;
   display: flex;
-  flex-direction: rows;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
@@ -147,6 +147,23 @@ a {
 .enter a {
   text-decoration: none;
 }
+.subheadingStyle {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "add sort";
+}
+.studentTitle {
+  text-align: center;
+  margin: 10px;
+}
+
+.addStudent {
+  grid-area: add;
+}
+form {
+  grid-area: sort;
+}
+
 @media only screen and (max-width: 600px) {
   .App {
     font-size: 13.5px;
