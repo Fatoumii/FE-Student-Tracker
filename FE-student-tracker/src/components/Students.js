@@ -57,9 +57,9 @@ class Students extends React.Component {
   }
   componentDidUpdate = (prevProps, prevState) => {
     const { slug } = this.props;
-    console.log(this.props);
     const { sortby } = this.state;
     if (slug !== prevProps.slug || sortby !== prevState.sortby) {
+      console.log("change");
       this.fetchStudents(slug, sortby);
     }
   };
@@ -73,6 +73,7 @@ class Students extends React.Component {
 
   fetchStudents = async (slug, sortby) => {
     const students = await api.getStudent(slug, sortby);
+    console.log(students, slug);
     this.setState({ students, loading: false });
   };
 

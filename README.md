@@ -2,8 +2,6 @@
 
 WIP - need to ammed nav bar so component updates
 
-# Google Books
-
 A responsive student tracker project where you're able to view all students, add a student, delete a student and progress them using React and CSS, with data being requested from https://nc-student-tracker.herokuapp.com/.
 
 ## Getting Started
