@@ -1,6 +1,6 @@
 import React from "react";
 import * as api from "../utils";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 
 class Students extends React.Component {
   state = {
@@ -59,7 +59,6 @@ class Students extends React.Component {
     const { slug } = this.props;
     const { sortby } = this.state;
     if (slug !== prevProps.slug || sortby !== prevState.sortby) {
-      console.log("change");
       this.fetchStudents(slug, sortby);
     }
   };
@@ -72,9 +71,17 @@ class Students extends React.Component {
   };
 
   fetchStudents = async (slug, sortby) => {
-    const students = await api.getStudent(slug, sortby);
-    console.log(students, slug);
-    this.setState({ students, loading: false });
+    try {
+      const students = await api.getStudent(slug, sortby);
+      this.setState({ students, loading: false });
+    } catch (err) {
+      navigate("/error", {
+        state: {
+          message: "The block does not exist"
+        },
+        replace: true
+      });
+    }
   };
 
   handleChange = event => {

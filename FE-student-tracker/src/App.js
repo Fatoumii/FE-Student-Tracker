@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
+import Error from "./components/Error";
 import * as api from "./utils";
 
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
           <Home path="/" />
           <Main path="/students/*" blocks={blocks} />
           <Main path="/blocks/:slug" />
+          <Error path="/error" />
         </Router>
         <Footer />
       </div>

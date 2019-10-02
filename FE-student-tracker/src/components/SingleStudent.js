@@ -1,4 +1,6 @@
 import React from "react";
+import { navigate } from "@reach/router";
+
 import * as api from "../utils";
 
 class SingleStudent extends React.Component {
@@ -74,15 +76,24 @@ class SingleStudent extends React.Component {
     this.fetchSingleStudent();
   };
   fetchSingleStudent = async () => {
-    const { student_id } = this.props;
-    const student = await api.getStudentById(student_id);
-    const blocks = student.blockHistory.map(block => block.name);
-    this.setState({
-      student,
-      blockHistory: student.blockHistory,
-      loading: false,
-      blocks
-    });
+    try {
+      const { student_id } = this.props;
+      const student = await api.getStudentById(student_id);
+      const blocks = student.blockHistory.map(block => block.name);
+      this.setState({
+        student,
+        blockHistory: student.blockHistory,
+        loading: false,
+        blocks
+      });
+    } catch (err) {
+      navigate("/error", {
+        state: {
+          message: "The student cannot be found"
+        },
+        replace: true
+      });
+    }
   };
   handleDelete = () => {
     const { student_id } = this.props;
