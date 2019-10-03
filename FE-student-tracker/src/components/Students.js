@@ -77,7 +77,7 @@ class Students extends React.Component {
     } catch (err) {
       navigate("/error", {
         state: {
-          message: "The block does not exist"
+          message: "The student cannot be found"
         },
         replace: true
       });

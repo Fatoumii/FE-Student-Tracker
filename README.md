@@ -1,4 +1,4 @@
-# FE-Test
+# Student Tracker
 
 A responsive student tracker project where you're able to view all students, add a student, delete a student and progress them using React and CSS, with data being requested from https://nc-student-tracker.herokuapp.com/.
 
