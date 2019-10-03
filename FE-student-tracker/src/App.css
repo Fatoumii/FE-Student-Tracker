@@ -163,6 +163,9 @@ a {
 form {
   grid-area: sort;
 }
+select {
+  margin-top: 5px;
+}
 
 @media only screen and (max-width: 600px) {
   .App {
@@ -195,5 +198,8 @@ form {
   }
   h1 {
     font-size: 23px;
+  }
+  select {
+    border: 1px solid rgb(177, 174, 174);
   }
 }
