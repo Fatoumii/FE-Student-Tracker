@@ -71,17 +71,8 @@ class Students extends React.Component {
   };
 
   fetchStudents = async (slug, sortby) => {
-    try {
-      const students = await api.getStudent(slug, sortby);
-      this.setState({ students, loading: false });
-    } catch (err) {
-      navigate("/error", {
-        state: {
-          message: "The student cannot be found"
-        },
-        replace: true
-      });
-    }
+    const students = await api.getStudent(slug, sortby);
+    this.setState({ students, loading: false });
   };
 
   handleChange = event => {
