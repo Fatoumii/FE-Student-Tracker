@@ -132,7 +132,7 @@ class SingleStudent extends React.Component {
     this.setState({ student: updatedStudent, progress: true });
   };
 
-  redoblock = async () => {
+  redoBlock = async () => {
     const { student_id } = this.props;
     const keepStudent = await api.dontProgressStudent(student_id);
 
