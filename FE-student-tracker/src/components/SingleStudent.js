@@ -57,32 +57,36 @@ class SingleStudent extends React.Component {
                         </p>
                       </div>
                     ) : (
-                      <div>
+                      <div className="singleStudentLayout">
                         <h1>{student.name}</h1>
-                        <h3>
-                          Started with us on Cohort {student.startingCohort}
-                        </h3>
-                        <h4>Block History:</h4>
-                        {blocks.map((block, i) => (
-                          <p key={i}>{block}</p>
-                        ))}
-                        <button onClick={this.handleDelete}>Delete</button>
-                        <button
-                          disabled={blockHistory.some(
-                            block => block.name === "Graduated"
-                          )}
-                          onClick={this.handleProgress}
-                        >
-                          Progress Student
-                        </button>
-                        <button
-                          disabled={blockHistory.some(
-                            block => block.name === "Graduated"
-                          )}
-                          onClick={this.redoblock}
-                        >
-                          Redo Block
-                        </button>
+                        <section>
+                          <h3>
+                            Started with us on Cohort {student.startingCohort}
+                          </h3>
+                          <h4>Block History:</h4>
+                          {blocks.map((block, i) => (
+                            <p key={i}>{block}</p>
+                          ))}{" "}
+                        </section>
+                        <div>
+                          <button onClick={this.handleDelete}>Delete</button>
+                          <button
+                            disabled={blockHistory.some(
+                              block => block.name === "Graduated"
+                            )}
+                            onClick={this.handleProgress}
+                          >
+                            Progress Student
+                          </button>
+                          <button
+                            disabled={blockHistory.some(
+                              block => block.name === "Graduated"
+                            )}
+                            onClick={this.redoblock}
+                          >
+                            Redo Block
+                          </button>
+                        </div>
                       </div>
                     )}
                   </div>

@@ -166,6 +166,24 @@ form {
 select {
   margin-top: 5px;
 }
+.singleStudentLayout {
+  display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-areas: "header" "blocks" "buttons";
+}
+.singleStudentLayout h1 {
+  grid-area: header;
+  margin: auto 0;
+}
+.singleStudentLayout section {
+  grid-area: blocks;
+  margin-top: 0px;
+}
+.singleStudentLayout div {
+  grid-area: buttons;
+  margin: auto 0;
+  padding: 10px;
+}
 
 @media only screen and (max-width: 600px) {
   .App {
