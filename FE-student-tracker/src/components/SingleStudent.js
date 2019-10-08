@@ -82,7 +82,7 @@ class SingleStudent extends React.Component {
                             disabled={blockHistory.some(
                               block => block.name === "Graduated"
                             )}
-                            onClick={this.redoblock}
+                            onClick={this.redoBlock}
                           >
                             Redo Block
                           </button>
