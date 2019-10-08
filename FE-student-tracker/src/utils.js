@@ -44,3 +44,10 @@ export const updateStudentProgress = async id => {
   );
   return data.student;
 };
+
+export const dontProgressStudent = async id => {
+  const { data } = await axios.patch(
+    `https://nc-student-tracker.herokuapp.com/api/students/${id}?progress=false`
+  );
+  return data.student;
+};

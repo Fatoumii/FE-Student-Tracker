@@ -10,7 +10,7 @@ class SingleStudent extends React.Component {
     deletedSuccessfully: false,
     loading: true,
     blocks: [],
-    progress: false
+    progress: null
   };
   render() {
     const {
@@ -27,20 +27,20 @@ class SingleStudent extends React.Component {
           "Loading..."
         ) : (
           <div>
-            {progress === true ? (
+            {progress === false ? (
               <div>
-                <h1>
-                  {student.name} has now been progressed to the next block
-                </h1>
+                <h1>{student.name} is remaining in this block</h1>
                 <p>
                   Go back to the list of students <a href="/students">here</a>
                 </p>
               </div>
             ) : (
               <div>
-                {deletedSuccessfully === true ? (
+                {progress === true ? (
                   <div>
-                    <h1>{student.name} has now been deleted</h1>
+                    <h1>
+                      {student.name} has now been progressed to the next block
+                    </h1>
                     <p>
                       Go back to the list of students{" "}
                       <a href="/students">here</a>
@@ -48,21 +48,43 @@ class SingleStudent extends React.Component {
                   </div>
                 ) : (
                   <div>
-                    <h1>{student.name}</h1>
-                    <h3>Started with us on Cohort {student.startingCohort}</h3>
-                    <h4>Block History:</h4>
-                    {blocks.map((block, i) => (
-                      <p key={i}>{block}</p>
-                    ))}
-                    <button onClick={this.handleDelete}>Delete</button>
-                    <button
-                      disabled={blockHistory.some(
-                        block => block.name === "Graduated"
-                      )}
-                      onClick={this.handleProgress}
-                    >
-                      Progress Student
-                    </button>
+                    {deletedSuccessfully === true ? (
+                      <div>
+                        <h1>{student.name} has now been deleted</h1>
+                        <p>
+                          Go back to the list of students{" "}
+                          <a href="/students">here</a>
+                        </p>
+                      </div>
+                    ) : (
+                      <div>
+                        <h1>{student.name}</h1>
+                        <h3>
+                          Started with us on Cohort {student.startingCohort}
+                        </h3>
+                        <h4>Block History:</h4>
+                        {blocks.map((block, i) => (
+                          <p key={i}>{block}</p>
+                        ))}
+                        <button onClick={this.handleDelete}>Delete</button>
+                        <button
+                          disabled={blockHistory.some(
+                            block => block.name === "Graduated"
+                          )}
+                          onClick={this.handleProgress}
+                        >
+                          Progress Student
+                        </button>
+                        <button
+                          disabled={blockHistory.some(
+                            block => block.name === "Graduated"
+                          )}
+                          onClick={this.redoblock}
+                        >
+                          Redo Block
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -104,6 +126,13 @@ class SingleStudent extends React.Component {
     const { student_id } = this.props;
     const updatedStudent = await api.updateStudentProgress(student_id);
     this.setState({ student: updatedStudent, progress: true });
+  };
+
+  redoblock = async () => {
+    const { student_id } = this.props;
+    const keepStudent = await api.dontProgressStudent(student_id);
+
+    this.setState({ student: keepStudent, progress: false });
   };
 }
 
