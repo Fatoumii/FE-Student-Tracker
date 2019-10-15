@@ -74,17 +74,17 @@ class SingleStudent extends React.Component {
                             disabled={blockHistory.some(
                               block => block.name === "Graduated"
                             )}
-                            onClick={this.handleProgress}
+                            onClick={this.redoBlock}
                           >
-                            Progress Student
+                            Redo Block
                           </button>
                           <button
                             disabled={blockHistory.some(
                               block => block.name === "Graduated"
                             )}
-                            onClick={this.redoBlock}
+                            onClick={this.handleProgress}
                           >
-                            Redo Block
+                            Progress Student
                           </button>
                         </div>
                       </div>
