@@ -13,14 +13,14 @@ class Main extends React.Component {
     loading: true
   };
   render() {
-    const { blocks, slugs, loading } = this.state;
+    const { blocks, loading } = this.state;
     return (
       <div>
         {loading === true ? (
           "Loading..."
         ) : (
           <div>
-            <Nav blocks={blocks} slugs={slugs} />
+            <Nav blocks={blocks} />
             <Router>
               <Students path="/" blocks={blocks} />
               <SingleStudent path="/:student_id" />
