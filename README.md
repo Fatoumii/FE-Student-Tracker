@@ -14,11 +14,17 @@ Clone this repository with command **`git clone https://github.com/Fatoumii/FE-S
 
 At this point, start the server by running the script **`npm start`**. With this, you'll have the application up and running on your local machine.
 
+### Deployment
+
+This project can be viewed here:
+https://student-tracker-fatoumi.netlify.com/
+
 ## Built With
 
-```React https://reactjs.org/ - Framework used
- Axios - Used to retrieve data
- HTML/CSS - Structure and styling
+```
+React https://reactjs.org/ - Framework used
+Axios - Used to retrieve data
+HTML/CSS - Structure and styling
 ```
 
 ## Authors
