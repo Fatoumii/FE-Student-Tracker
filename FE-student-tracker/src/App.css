@@ -96,7 +96,7 @@ footer a {
 button {
   font-family: "Times New Roman";
   font-variant: small-caps;
-  font-size: 16px;
+  /* font-size: 16px; */
   height: 5vh;
   padding-right: 20px;
   padding-left: 20px;
@@ -106,6 +106,7 @@ button {
   border-radius: 3px;
   margin: 10px;
   width: 15vw;
+  border: none;
 }
 button:hover {
   cursor: pointer;
